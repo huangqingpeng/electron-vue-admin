@@ -23,13 +23,13 @@ if (process.env.BUILD_TARGET === 'clean') clean()
 else if (process.env.BUILD_TARGET === 'web') web()
 else build()
 
-function clean () {
+function clean() {
   del.sync(['build/*', '!build/icons', '!build/icons/icon.*'])
   console.log(`\n${doneLog}\n`)
   process.exit()
 }
 
-function build () {
+function build() {
   greeting()
 
   del.sync(['dist/electron/*', '!.gitkeep'])
@@ -43,9 +43,9 @@ function build () {
   let results = ''
 
   m.on('success', () => {
-    process.stdout.write('\x1B[2J\x1B[0f')
-    console.log(`\n\n${results}`)
-    console.log(`${okayLog}take it away ${chalk.yellow('`electron-builder`')}\n`)
+        process.stdout.write('\x1B[2J\x1B[0f')
+        console.log(`\n\n${results}`)
+        console.log(`${okayLog}take it away ${chalk.yellow('`electron-builder`')}\n`)
     process.exit()
   })
 
@@ -126,5 +126,5 @@ function greeting () {
       space: false
     })
   } else console.log(chalk.yellow.bold('\n  lets-build'))
-  console.log()
+  
 }
